@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <script>
+      // first way to get an output is to use the getElementByID and changing its innerHTML
+      document.getElementById("demo").innerHTML = 5 + 6;
+
+      //second way is to write in the document directly
+      // However document.write should only be used for testing
+      document.write(5 + 16, " Writing in the document directly");
+
+      // third way is to use the alert attribute of the window object
+      // since window in the global object, you can skip window and just write alert
+      window.alert(5 + 6);
+      // since window in the global object, you can skip window and just write alert
+      alert("press ok");
+
+      // another way is to use console.log
+      // this is only used for back end user
+      // it wont show the output in the body of the browser
+      console.log("Hello World");
+    </script>
+
+    <!-- you can print the whole web window with your printer by using the window.print() function -->
+    <button onclick="window.print()">Print</button>
+  </body>
+</html>
+ 

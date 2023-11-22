@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Method Toggle</title>
+    <!-- Font Awesome CDN for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      .toggle-container {
+        position: relative;
+        width: 120px;
+        height: 22px;
+        margin: 20px auto; /* Centering the div */
+        background-color: #f2cb0886; /* New background color */
+        padding: 10px;
+        border-radius: 20px; /* Rounded corners */
+      }
+
+      .icon {
+        cursor: pointer;
+        display: inline-block;
+        font-size: 20px;
+        transition: opacity 0.25s;
+      }
+
+      #cardIcon {
+        position: absolute;
+        left: 23px;
+        top: 10px;
+        opacity: 1; /* Default visible */
+      }
+
+      #cashIcon {
+        position: absolute;
+        right: 23px;
+        top: 10px;
+        opacity: 0.3; /* Default dimmed */
+      }
+
+      #check-status {
+        display: block;
+        margin: 20px auto; /* Centering the button */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toggle-container">
+      <div id="cardIcon" class="icon"><i class="fas fa-credit-card"></i></div>
+      <div id="cashIcon" class="icon">
+        <i class="fas fa-money-bill-wave"></i>
+      </div>
+    </div>
+    <button id="check-status">Check the status</button>
+
+    <script>
+      //We use the DOMContentLoaded event to ensure the script runs after the HTML document has been fully loaded.
+      // We set an initial state where the card icon is fully visible (opacity 1), the cash icon is dimmed (opacity 0.3), and the selectedPaymentMethod is set to "Card".
+      // The event listeners for the card and cash icons update the selectedPaymentMethod variable whenever an icon is clicked.
+      // The button click event now checks the selectedPaymentMethod variable to determine which payment method is currently selected.
+      document.addEventListener("DOMContentLoaded", function () {
+        let cardIcon = document.getElementById("cardIcon");
+        let cashIcon = document.getElementById("cashIcon");
+
+        // Set initial state
+        cardIcon.style.opacity = "1";
+        cashIcon.style.opacity = "0.3";
+        let selectedPaymentMethod = "Card"; // Default selected method
+
+        cardIcon.addEventListener("click", function () {
+          cardIcon.style.opacity = "1";
+          cashIcon.style.opacity = "0.3";
+          selectedPaymentMethod = "Card";
+        });
+
+        cashIcon.addEventListener("click", function () {
+          cashIcon.style.opacity = "1";
+          cardIcon.style.opacity = "0.3";
+          selectedPaymentMethod = "Cash";
+        });
+
+        document
+          .getElementById("check-status")
+          .addEventListener("click", function () {
+            console.log(selectedPaymentMethod + " is selected");
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <!-- You can call a function or execute any js code when page is loaded -->
+  <!-- The onunload and onbeforeunload was not working for some reason -->
+  <body
+    onload="console.log('Document loaded')"
+    onbeforeunload="console.log('document unloaded')"
+  >
+    <h1 id="title" onclick="changeText()">Click and change</h1>
+    <!-- or you can directly assign the code in the onclick attribute using this keyword-->
+    <h2 id="title2" onclick="this.innerHTML = 'I love JavaScript'">Hi</h2>
+    <!-- you can pass the this keyword in a function an work with that element in the javaScript -->
+    <h3 id="title3" onclick="anotherChangeText(this)">Click</h3>
+    <button id="myBtn">click</button><br />
+    <br />
+    <a href="https://www.google.com">google</a>
+    <!-- When some thing changes in the element you can trigger an event -->
+    <br />
+    <br />
+    <input
+      id="name"
+      onchange="capitalize()"
+      type="Text"
+      placeholder="Enter Name"
+    />
+    <br />
+    <br />
+    <div
+      id="container"
+      style="background-color: rgb(234, 4, 4); font-size: 50px"
+      onmousedown="this.innerHTML = 'Pressed'"
+      onmouseup="this.innerHTML = 'Mouse up'"
+      onmouseover="this.innerHTML = 'You are inside the container'"
+      onmouseout="this.innerHTML = 'You left'"
+    >
+      Hello
+    </div>
+    <script src="eventsInJs.js"></script>
+  </body>
+</html>

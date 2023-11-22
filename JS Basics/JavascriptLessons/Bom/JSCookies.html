@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input
+        type="button"
+        value="Set name cookie"
+        onclick="setCookie('name','obeadur Rahman',2)"
+      />
+    </div>
+    <div>
+      <input
+        type="button"
+        value="Set username cookie"
+        onclick="setCookie('username','Zarin Rafa', 3)"
+      />
+    </div>
+    <div>
+      <input
+        type="button"
+        value="Get name cookie"
+        onclick="alert(getNameCookie('name'))"
+      />
+    </div>
+    <div>
+      <input
+        type="button"
+        value="Get username cookie"
+        onclick="alert(getNameCookie('username'))"
+      />
+    </div>
+
+    <div>
+      <input
+        type="button"
+        value="Check if a cookie exists"
+        onclick="checkCookie('username')"
+      />
+    </div>
+
+    <script src="JSCookies.js"></script>
+  </body>
+</html>

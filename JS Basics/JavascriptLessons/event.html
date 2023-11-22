@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo">Display time here</p>
+    <!-- Calling the date function when the button is clicked -->
+    <button
+      onclick="document.getElementById('demo').innerHTML = Date()"
+    >Current time</button>
+    <br> <br>
+    <button onclick="this.innerText = new Date().toLocaleTimeString()" >Display time here</button>
+    <button onclick="displayAlert()">Display alert</button>
+    <script src="event.js"></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        gap: 5px;
+        display: flex;
+      }
+      .error {
+        position: relative;
+        margin-bottom: 35px;
+      }
+      .error::after {
+        content: "Name must be filled out";
+        text-align: center;
+        position: absolute;
+        top: 30px;
+        left: 3.1%;
+        width: 11.1%;
+        height: 20px;
+        background-color: rgba(97, 165, 42, 0.382);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- The 'name' attribute helps the server identify form data. In JS, we can grab elements using both 'name' and 'id'. -->
+    <!-- name can be shared by multiple elements, like radio buttons in a group. -->
+    <!-- While The 'id' attribute gives a unique identity to elements on the page and is often used for targeting in JS. -->
+
+    <form
+      name="myForm"
+      action="/action_page.php"
+      onsubmit="return validateForm()"
+      method="post"
+    >
+      <div id="container">
+        Name: <input type="text" name="fname" /><input
+          type="submit"
+          value="Submit"
+        />
+      </div>
+    </form>
+    <p>Please input a number between 1 and 10:</p>
+    <input id="num" />
+    <button type="button" onclick="myFunction()">Submit</button>
+    <p id="demo"></p>
+    <!-- from HTML you can also validate small cases, for example to check if you input field is empty or not you can use required field -->
+    <form action="">
+      Must have a value: <input type="text" required />
+      <input type="submit" value="Submit" />
+    </form>
+    <!-- Some other values you could use is -->
+    <!-- Disabled, max, min, pattern, required, type(number) -->
+
+    <script src="dom_Froms.js"></script>
+  </body>
+</html>

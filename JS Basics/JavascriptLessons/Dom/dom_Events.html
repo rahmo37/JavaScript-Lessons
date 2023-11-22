@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body id="body">
+    <h1
+      id="title"
+      onclick="changeText()"
+      style="cursor: pointer"
+    >
+      This text will change
+    </h1>
+
+    <!-- If want to change an element's text just by using HTML file, without using the External JS file you can use the  js directly on the HTML file-->
+    <!-- Lets say you have an H2 element and you want to change it's text -->
+    <!-- This here represents the h2 element itself -->
+
+    <!-- note that the attributes related to events are called the event attributes -->
+    <h2 onclick="this.innerText = `text changed`">This text will change</h2>
+
+    <!-- Lets say that we a button with its innerText click -->
+    <!-- Now we want JS to add an event response when this button is clicked -->
+    <button id="button">Click</button>
+    <a href="https://www.google.com/">Google</a> <br>
+    <input type="text">
+    <script src="dom_Events.js"></script>
+  </body>
+</html>

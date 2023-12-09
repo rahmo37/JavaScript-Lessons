@@ -37,3 +37,41 @@ if (typeof Worker !== "undefined") {
 // Use Cases: Web Workers are useful for performing computationally expensive tasks, like image processing, complex calculations, or handling large datasets, without blocking the user interface.
 
 // Types of Workers: There are different types of workers, like dedicated workers (used by a single script), shared workers (shared between multiple scripts), and service workers (for tasks like background synchronization, push notifications).
+
+let workerObj;
+function startWorker() {
+  // at first we determine if the worker is available or not
+  if (typeof Worker !== "undefined") {
+    // Worker api is available
+
+    if (typeof workerObj == "undefined") {
+      // created a worker called workerObj
+      workerObj = new Worker("worker.js");
+    }
+
+    // ilstining for worker events/messages
+    // onmessage is an event handler in JavaScript. It is specifically used for handling "message" events. an event handler is a function that is called when a specific event occurs. The onmessage event handler is called when a message event is received.
+    // onmessage is used to handle messages sent from the main thread to the worker thread. The worker thread can also send messages back to the main thread, which are handled by the same function as well
+
+    // In the below case a message is coming from the worker file, so we are using the onmessage function to recieve the evet and its data
+    workerObj.onmessage = function (event) {
+      console.log("Hi");
+      document.getElementById("demo").innerHTML = event.data;
+    };
+  } else {
+    console.log("Hi");
+    alert("Browser does not supprot web worker!");
+  }
+}
+
+function stopWorker() {
+  if (typeof Worker !== "undefined") {
+    workerObj.terminate();
+    workerObj = undefined;
+  } else {
+    alert("Browser does not supprot web worker!");
+  }
+}
+
+
+// So the main purpose of this lesson is to show that, event if worker thread is busy doing heavy work we can still use the main thread.

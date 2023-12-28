@@ -1,0 +1,1 @@
+Before you assign a callback function to the xhr.onload property in JavaScript, the property is not necessarily blank, but it doesn't have a user-defined function attached to it. The XMLHttpRequest object (xhr) has its own default behavior for the onload event, which is usually to do nothing unless explicitly defined.

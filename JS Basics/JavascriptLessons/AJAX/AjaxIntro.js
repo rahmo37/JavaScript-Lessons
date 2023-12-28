@@ -18,6 +18,10 @@ function loadData() {
 
   // ! Note that: The onload event is triggered when an XHR request completes, regardless of whether the response is successful or not. This means the onload event will fire even if the server returns an error status code (like 404 or 500).
 
+  xhr.onreadystatechange = function () {
+    console.log("Hi", this.readyState);
+  };
+
   xhr.onload = function () {
     const placeholder = document.getElementById("demo");
 
@@ -38,7 +42,6 @@ function loadData() {
 
     placeholder.innerHTML = xhr.responseText;
   };
-
   {
     // xhr.open() is a method of the XMLHttpRequest (XHR) object in JavaScript, used to initialize a new request. It's one of the first steps in configuring and sending an HTTP request via XHR. Here's a breakdown of how it works and its parameters:
 
@@ -119,4 +122,20 @@ function loadData() {
 // 403: "Forbidden"
 // 404: "Not found"
 
-// Next start from onreadystatechange and readyState
+// * statusText
+// returns the status text i.e. "OK" or "Not Found"
+
+// * readyState
+// readyState is a property of the XMLHttpRequest object that represents the state of the request.
+// 0: UNSENT; the open() method has not been called yet. on the other hand the request is not initialized
+// 1: OPENED; the open() method has been called. in other owrds the request is up and ready to send
+// 2: HEADERS_RECIEVED; the send() method has been called and requestr has been sent.However only headers and status are available, but response body is not yet recieved
+// 3: LOADING; The response body is being recieved. In this state, if the response is large you might be able to start processing the parts of it before the entire response is fully recieved
+// 4: DONE: The operartion is complete. you can access the full response
+
+// * xhr.onreadyStateChange
+// this property is an event handles of the XMLHttpRequest object that is called whenever the readyState property changes.
+// it is used to define a function that will execute when the state of the XMLHttpRequest or readyState property  changes.
+
+// * xhr.responseText
+// returns the responseData as string

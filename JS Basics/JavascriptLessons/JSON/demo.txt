@@ -1,0 +1,1 @@
+{"id":123,"name":"John Doe","email":"johndoe@example.com","addresses":[{"type":"home","street":"123 Elm St","city":"Springfield","state":"IL","zip":"62704"},{"type":"work","street":"456 Oak St","city":"Metropolis","state":"NY","zip":"10001"}],"preferences":{"contact":"email","newsletter":true}}

@@ -1,11 +1,13 @@
 // Variables can be declared in 3 ways in js let, var, and const.
 
-// once you declare a value with let keyword you cannot redeclare that variable, though you can still assigne it with new value.
+// once you declare a value with let keyword you cannot redeclare that variable, though you can still assigne it with new values.
 let sunSurfaceTemp_C_Let = 5500;
 // On the other hand you can actually redeclare a variable with var keyword
 var sunSurfaceTemp_C_Var = 5500;
 var sunSurfaceTemp_C_Var = 1000;
-// console.log(sunSurfaceTemp_C_Var);
+
+// the latest declaration of sunSurfaceTemp_C_Var = 1000 will be printed
+console.log(sunSurfaceTemp_C_Var);
 
 // Another trait of let and const is, if a variable is declared inside a block it cannot be accessed outside of that block
 {
@@ -19,7 +21,7 @@ var sunSurfaceTemp_C_Var = 1000;
 }
 console.log(x_var);
 
-// another trait of let is, say that a variable is declared outside of a block. and you want to declare another variable with the same name and change its value inside a block, and outside of that block its value would still stay the same, you could do it with let key word
+// another trait of let is, say that a variable is declared outside of a block. and you want to declare another variable with the same name and change its value inside a block, and outside of that block its value would still stay the same, you could do it with let key word. All in all both those variables (though same name) are different variables
 let y_let = 5;
 
 {
@@ -29,7 +31,7 @@ let y_let = 5;
 
 console.log(y_let); // outputs 5
 
-// on the otherhand if you change a variable's value that has been declared with var keyword, and you declare a variable with the same name and change its value in a block it would still change the value of the global variable.
+// on the otherhand if you change a variable's value that has been declared with var keyword, and you declare a variable with the same name and change its value in a block it would still change the value of the global variable. Since they are not blocked scoped, they are consodered same vartiable
 var y_var = 10;
 
 {

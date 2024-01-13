@@ -1,0 +1,50 @@
+1. Variables.JS
+* Let Var const
+* Scope of Let Var const
+* Hoisting
+* Const object 
+
+2. Arithmetic Operators
+* Addition (+)
+* Subtraction (-)
+* Multiplication (*)
+* Division (/)
+* Modulus (%)
+* Exponent (**)
+* Increment (++)
+* Decrement (--)
+* Addition Assignment (+=)
+* Subtraction Assignment (-=)
+* Multiplication Assignment (*=)
+* Division Assignment (/=)
+* Modulus Assignment (%=)
+* Exponentiation Assignment (**=)
+
+* String Concatenation with the Addition Operator
+
+* Type Coercion in Addition (String and Number combination)
+
+* Comparison Operators
+
+* Equality (==)
+* Strict Equality (===)
+* Inequality (!=)
+* Strict Inequality (!==)
+* Greater Than (>)
+* Less Than (<)
+* Greater Than or Equal To (>=)
+* Less Than or Equal To (<=)
+* Ternary Operator (?)
+
+Logical Operators
+
+* Logical AND (&&)
+* Logical OR (||)
+* Logical NOT (!)
+* Type Operators
+
+* typeof
+* instanceof
+* Evaluation Order in Expressions (Left to Right evaluation)
+
+3.

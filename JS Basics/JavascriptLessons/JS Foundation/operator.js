@@ -48,6 +48,20 @@ console.log("This is a", typeof a, a);
 // <= wheather a is less than or equal to b or not
 // ? ternary oprator
 
+//! Some General rules of Loose equality and Strict Equality
+
+// String and Number: If first operand is a number and the other is a string, the string is typically converted to a number. For example, 5 == '5' would convert the string '5' to the number 5.
+
+// Boolean Comparisons: If one operand is a boolean, JavaScript converts the boolean to a number (true to 1 and false to 0) before making the comparison.
+
+// Object Comparisons: If one operand is an object and the other is not, JavaScript calls the toString() or valueOf() method on the object to convert it to a primitive value, which is then compared as per the above rules.
+
+// Null and Undefined: null and undefined are equal to each other but not to anything else.
+
+// Other Falsy Values: JavaScript has other "falsy" values like 0, "" (empty string), NaN, null, and undefined. When compared with the loose equality operator, conversions are based on the rules above, and results can sometimes be non-intuitive.
+
+// So, in summary, whether a number is converted to a string or a string is converted to a number when using the == operator depends on the specific values being compared and their types. This type coercion is why many developers prefer to use the strict equality operator ===, which does not perform type conversion and only returns true if both the value and the type of the operands are the same.
+
 // LOGICAL OPERATOR
 // &&, wheather a and b
 // ||, wheather a or b

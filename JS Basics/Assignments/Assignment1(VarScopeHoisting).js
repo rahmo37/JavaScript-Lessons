@@ -86,7 +86,6 @@ let bLet;
 
 // * 4 Create a const object and modify one of its properties.
 
-
 // When you define a variable or and object with const keyword, you cannot reassign it.
 
 // Creating a const object
@@ -104,3 +103,9 @@ myObj = {}; //Facing an error, TypeError: Assignment to constant variable.
 // But we could definately chnage one of its properties
 myObj.name = "Arnob";
 console.log(myObj); //Working perfectly
+
+// * Reflect on the implications of using let, var, and const in different scenarios. Consider how these declarations affect code readability, maintainability, and potential bugs.
+
+// let and cont keyword is blocked scoped, var is function scoped. when you declare a variable with let they have more flexible control, also it aligned with other programming languages as well, same goes for const, scope wise it also behaves like let. on the other hand var is more confusing. which damages readability
+
+// When we talk about maintainabilibity and potential bugs, variables declared with var keyword definately are a perfect canditae because of their confusing nature. on the other hand const and let are more clean, readable, and intuative

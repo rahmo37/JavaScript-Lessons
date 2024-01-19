@@ -217,8 +217,41 @@ console.log(number + +"5", typeof (number + +"5"));
 
 // !Creative Coding Challenge
 
-// Write a simple program that uses various data types to solve a problem. For example, calculate the total cost of items in a shopping cart (using arrays and numbers), or store and display personal details in an organized manner (using objects).
+// ?Write a simple program that uses various data types to solve a problem. For example, calculate the total cost of items in a shopping cart (using arrays and numbers), or store and display personal details in an organized manner (using objects).
 
+// Declaring a shopping cart object,which has nested object in it
+const shoppingCart = {
+  item1: { name: "iPhone14", price: 599.99 },
+  item2: { name: "Acer Predator", price: 1200.99 },
+  item3: { name: "PS5", price: 399.0 },
+};
+
+let subtotal = 0;
+let taxRate = 8 / 100;
+let totalTax = 0;
+const deliveryCharge = 6.99;
+
+for (let price in shoppingCart) {
+  subtotal += shoppingCart[price].price;
+}
+console.log("Your subtotoal is: " + subtotal);
+
+totalTax = subtotal * taxRate;
+console.log("Your tax total is: " + totalTax.toFixed(2));
+
+let grandTotal = subtotal + totalTax;
+console.log("So the grand total is: " + grandTotal.toFixed(2));
+
+const nameArr = [
+  "Obaedur Rahman",
+  "Zarin Rafa",
+  "Umme Roushan",
+  "Mesbah Uddin",
+];
+
+for (let names of nameArr) {
+  console.log(names);
+}
 // !--------------------------------------------
 
 // !Submission:

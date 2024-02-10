@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body id="body">
+    <!-- onload property does not work on divs -->
+    <div id="container1"></div>
+    <div id="container2"></div>
+    <input type="text" onchange="showInput(this)" id="testInput" />
+    <div id="container3"></div>
+    <!-- When we pass this, its the element itself -->
+    <button onclick="changeColor(this)">Click me to change color</button>
+    <div
+      class="box"
+      onmouseover="changeBox(this, `Box 1`)"
+      onmouseout="this.innerHTML = `Box 1`"
+    >
+      Box 1
+    </div>
+    <div
+      class="box"
+      onmouseover="changeBox(this, `Box 2`)"
+      onmouseout="this.innerHTML = `Box 2`"
+    >
+      Box 2
+    </div>
+    <div
+      class="box"
+      onmouseover="changeBox(this, `Box 3`)"
+      onmouseout="this.innerHTML
+      = `Box 3`"
+    >
+      Box 3
+    </div>
+    <img
+      src="./img.png"
+      alt=""
+      onmouseover="this.style.height = '120px'; this.style.width = '120px'"
+      onmouseout="this.style.height = 'auto'; this.style.width = 'auto'"
+    />
+    <br>
+    <br>
+    <p>Text Box</p>
+    <input
+      type="text"
+      id="textBox"
+      placeholder="Wrtie something and then press the Spcaebar to display it"
+    />
+    <p id="message"></p>
+    <script src="Assignment6.js"></script>
+  </body>
+</html>

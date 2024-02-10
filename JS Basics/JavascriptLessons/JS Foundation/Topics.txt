@@ -4,7 +4,7 @@
 * Hoisting
 * Const object 
 
-2. Arithmetic Operators
+2. operators.js
 * Addition (+)
 * Subtraction (-)
 * Multiplication (*)
@@ -47,4 +47,74 @@ Logical Operators
 * instanceof
 * Evaluation Order in Expressions (Left to Right evaluation)
 
-3.
+3.dataTypes.js
+* Dynamic nature of JavaScript data types
+* String data type and usage
+* Number data type and e notation
+* Boolean data type
+* Array data type and indexing
+* Object data type and key-value pairs
+* Undefined data type
+* Null data type
+
+4.function.js
+* Basic structure and definition of a function in JavaScript
+* Invoking or calling a function
+* Making functions dynamic with parameters and arguments
+* Returning values from functions
+* Function scope and parameter accessibility
+* Behavior of code after the return statement in a function
+* Function reference and function execution differences
+* Using functions in expressions and string concatenation
+
+5.object.js
+* Introduction to JavaScript Objects
+* Defining Objects with Properties
+* Adding Properties to Existing Objects
+* Adding Methods to Objects
+* Accessing Object Properties using Dot and Bracket Notation
+* Use of the this Keyword in Methods
+* Calling Object Methods with Bracket Notation
+* Declaring Variables with the new Keyword for Different Data Types
+* Understanding the typeof Operator for Objects Created with new
+
+6.Events.js and Event module in w3School
+* HTML Events
+* JavaScript Reacting to Events
+* Event Handler Attributes in HTML
+* JavaScript Functions for Event Handling
+* Common HTML Events
+* JavaScript Event Handlers
+* Handling and Verifying User Input and Actions
+* Different Methods for Event Handling in JavaScript
+* Comprehensive Use of Events in Web Development
+
+
+7. Strings in js foundation and String in w3Schools
+* JavaScript Strings
+* Using Quotes
+   Single Quotes
+   Double Quotes
+* Quotes Inside Quotes
+* Template Strings
+* String Length
+* Escape Characters
+   Single Quote (\')
+   Double Quote (\")
+   Backslash (\\)
+   New Line (\n)
+   Carriage Return (\r)
+   Horizontal Tab (\t)
+   Vertical Tab (\v)
+   Backspace (\b)
+   Form Feed (\f)
+* Breaking Long Lines
+   Using String Addition
+   Using Backslash for Multiline Strings
+* JavaScript Strings as Objects vs Primitive Values
+   Comparison Using == and ===
+   String Objects Producing Unexpected Results
+* Multiline Strings with Template Strings (reiterated with emphasis on multiline capabilities)
+*Strings in HTML
+   Handling Special Characters
+   Concatenation for Breaking Long Lines

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onload="displayText()"">
+    <input type="text" onchange="changeColor2(this)" />
+    <button id="changeTextBtn" onclick="changeText(this)">changeText</button>
+    <img
+      src="./KeyCodes.png"
+      style="height: 300px; width: 300px"
+      onmouseover="changeSize(this, `over`)"
+      onmouseout="changeSize( this,`out`)"
+    />
+
+    <p id="textContainer">Hi</p>
+    <p id="textContainer2"></p>
+
+    <!-- You can send the event object in the changeText2 function -->
+    <!-- Well now i found out hte event is automatically sent, but you can send event explictly -->
+    <input type="text" id="textBox2" onkeydown="changeText2(event, this)">
+    <script src="./Assignment6.js"></script>
+  </body>
+</html>

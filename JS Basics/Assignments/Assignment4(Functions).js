@@ -67,9 +67,11 @@ console.log(greeting("Obaedur Rahman")); //Since we've passed a parameter it is 
 console.log(greeting());
 
 // now we could also use it as a reference saving its fuction body in another variable.
-const greetingPeople = greeting; //notice here we did not use the parantheses. therefore JS issaving its body in the greetingPeople variable.
+const greetingPeople = greeting; //notice here we did not use the parantheses. therefore JS is saving its body in the greetingPeople variable.
 
-// However now when we use the variable to call the function we use parantheses
+// when you save a function in a variable, the phenomenon is called a "function expression." This is when a function is created and assigned to a variable. The function can then be invoked using the variable name as if it were the function name
+
+// now when we use the variable to call the function we use parantheses and provide a value as an argument
 console.log(greetingPeople("Zarin Rafa"));
 
 // Notice just printing without the paranthese will just print the function body not invoke it
@@ -196,11 +198,32 @@ class Calculator {
   substract(num1, num2) {
     return num1 - num2;
   }
+
+  // Send a series of number, and the numbers are divided linearly
+  divide(...num) {
+    let result = num[0] / num[1];
+    for (let i = 2; i < num.length; i++) {
+      result /= num[i];
+    }
+    return result;
+  }
+
+  // Send a series of number, and the numbers are multipled linearly
+  multiply(...num) {
+    let result = 1;
+    num.forEach((value) => {
+      result *= value;
+    });
+    return result;
+  }
 }
 
+// Here we are creating an object of calculator and calling all the methods of calculator, passing appropriate parameter
 const calc = new Calculator();
 console.log("Sum", calc.add(5, 5, 6));
 console.log("Substract", calc.substract(15, 5));
+console.log("Divide", calc.divide(120, 5, 2, 2));
+console.log("Multilpy", calc.multiply(120, 5, 2, 2));
 
 // ! Explanation for the add method
 // The ...num in the add method of the Calculator class is using a feature in JavaScript called "rest parameters." It allows you to pass an indefinite number of arguments to the function, and those arguments get bundled into an array. Here's a simple breakdown:

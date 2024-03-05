@@ -118,19 +118,155 @@ console.log(
 );
 
 // !Assignment 5: Strings as Objects vs. Primitive Strings
-// Objective: Understand the difference between strings created as primitive values and those created as objects.
+//? Objective: Understand the difference between strings created as primitive values and those created as objects.
 
-// Task: Create a primitive string and a string object with the same value. Compare them using == and === to observe the difference. Explain the results in comments.
-// Task: Compare two string objects containing the same value using == and ===. Then, compare their values using the valueOf() method. Explain the outcomes.
+// Primivite
+// Primitive String are created by assiging a value to a variable directly. For example:
+let primitiveString = "Primitive String";
+
+// Primitive strings are not object. they are immutable, meaning once created, their value cannot be changed. If you attempt to reassign the assigned variable to a new value, it will create a new value in the memory.
+
+// Also Operations on a primitive string, such as accessing individual characters or using string methods do not modify the orignal string rather returns a new string value.
+
+// Object
+// Object strings are created by the new keyword and the String constructor
+// For example
+let objectString = new String("Object String");
+
+// String objects are instances of the string class, and have properties and methods defined by the String prototype.
+// They are mutable, meaning their properties can be changed after creation
+// Comperatively slower to proccess than primitive strings
+
+// Type: Primitive strings are of type string, while string objects are of type object.
+// Equality: Comparing two primitive strings with the same value using == or === will return true, because their values are compared. Comparing two string objects with the same value will return false when using ===, because they are different objects in memory.
+// Performance: Primitive strings are generally faster and more efficient because they are not objects and do not have the overhead associated with objects.
+
+// ?Task: Create a primitive string and a string object with the same value. Compare them using == and === to observe the difference. Explain the results in comments.
+
+let primitiveStr = "Hello World";
+let objectStr = new String("Hello World");
+console.log(primitiveStr == objectStr, primitiveStr === objectStr);
+// The first comparison is returning true because the loose equality performs type coercion to try and match the types before comparing their values. In this case, the string object is converted to a primitive string value. This conversion process is known as "unboxing."
+
+// ?Task: Compare two string objects containing the same value using == and ===. Then, compare their values using the valueOf() method. Explain the outcomes.
+
+let strObj1 = new String("Falcon");
+let strObj2 = new String("Falcon");
+
+console.log(strObj1 == strObj2, strObj1 === strObj2); // None of them returns true because, they are pointing to different object
+
+// However, below both will return true because we are using the value of both variable to check the equality.
+console.log(
+  strObj1.valueOf() == strObj2.valueOf(),
+  strObj1.valueOf() === strObj2.valueOf()
+);
 
 // !Comprehensive Assignment: Manipulating and Comparing Strings
 // Objective: Combine all the lessons learned about strings into a single, comprehensive task.
 
 // Task: Write a script that does the following:
 
-// Prompt the user for their full name.
-// Check if the name includes any quotation marks (single or double) and remove them.
-// Split the name into first and last name assuming a single space separates them. Consider edge cases where there might be multiple spaces or none.
-// Convert the first and last names to template strings that spell out each character on a new line.
-// Compare the length of the first and last names using primitive values and as objects. Discuss the comparison in comments within your code.
-// Finally, output a formatted address using a template string, including the sanitized name, a made-up street, city, and zip code, all on separate lines.
+// ?Prompt the user for their full name.
+// ?Check if the name includes any quotation marks (single or double) and remove them.
+// ?Split the name into first and last name assuming a single space separates them. Consider edge cases where there might be multiple spaces or none.
+// ?Convert the first and last names to template strings that spell out each character on a new line.
+// ?Compare the length of the first and last names using primitive values and as objects. Discuss the comparison in comments within your code.
+// ?Finally, output a formatted address using a template string, including the sanitized name, a made-up street, city, and zip code, all on separate lines.
+
+// Import readline module, to take input from user
+const readLine = require("readline");
+
+const rl = readLine.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let fullName = "";
+let firstName = "";
+let lastName = "";
+
+// Explain and understand what is happening in the promise. Here we've creater new promise object with providing a callback function and which takes a resolve object to resolve it later.
+// Note that the inheritly synchronous lines inside a promise constructor are NOT async, only the lines that are inheritly async are the line that runs asynchronously. such as rl.question function and the callback function inside it are async, because it waits for user's input.
+
+function modifyString() {
+  return new Promise((resolve) => {
+    const askQuestion = () => {
+      rl.question("Please enter full name: ", (fullName) => {
+        let charArr = fullName.split("");
+        let numberOfSpaces = 0;
+        charArr.forEach((elem) => {
+          if (elem === " ") {
+            numberOfSpaces++;
+          }
+        });
+        // if the user provides an input that has no space we promt the user to enter the their name agaiin
+        if (numberOfSpaces !== 1) {
+          console.log(
+            "Please check the spaces entered in the input, must be only and atleast one space after the first name!"
+          );
+          askQuestion(); // Retry by asking again, recursively we call this function again
+          // we don not call the whole modifyString function again because, that would create new promise instances, instead we call the askQuestion() function over and over, until the user do not input the correct first and last name
+        } else {
+          let name = charArr.join("");
+          // If there are any quotes in the string provided we remove them
+          if (charArr.includes(`"`) || charArr.includes(`'`)) {
+            name = charArr
+              .filter((char) => char !== `"` && char !== `'`)
+              .join("");
+          }
+          resolve(name); //finally we resolve the name
+        }
+      });
+    };
+    askQuestion(); // Initial call to start the process
+  });
+}
+
+// after resolving we call the .then method
+modifyString().then((name) => {
+  fullName = name;
+  console.log(fullName);
+  firstName = name.split(" ")[0];
+  lastName = name.split(" ")[1];
+  rl.close(); // Close readline interface after successful input
+
+  // Converting Each character on a new line with template string
+  let newStringWithLines = name
+    .split("")
+    .map((eachChar) => {
+      return `${eachChar}\n`;
+    })
+    .join("");
+  console.log(newStringWithLines);
+
+  // Comparing both the firstName and lastName as primitive and as objects
+
+  // primitive
+  if (firstName.length > lastName.length) {
+    console.log(`first name is bigger than last name`);
+  } else if (firstName.length < lastName.length) {
+    console.log("last name is bigger than first name");
+  } else {
+    console.log("both are equal");
+  }
+
+  // Comapring both as objects, the length property are same as the primitive lengths.
+  const firstNameObject = new String(firstName);
+  const lastNameObject = new String(lastName);
+  if (firstNameObject.length > lastNameObject.length) {
+    console.log(`first name is bigger than last name`);
+  } else if (firstNameObject.length < lastNameObject.length) {
+    console.log("last name is bigger than first name");
+  } else {
+    console.log("both are equal");
+  }
+
+  // A formatted address using template string
+  console.log(
+    `Name: ${fullName}
+  Street: 26 w 21st St
+  City: Deer Park
+  State: New York
+  Country USA`
+  );
+});

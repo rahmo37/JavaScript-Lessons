@@ -47,3 +47,12 @@ console.log(text3.startsWith("The")); //will return true
 
 //you can check if a method ends with a specified string
 console.log(text3.endsWith("mind"));
+
+haystack = "sadbutsad";
+needle = "sad";
+
+var strStr = function (haystack, needle) {
+  return haystack.indexOf(needle);
+};
+
+console.log(strStr(haystack, needle));

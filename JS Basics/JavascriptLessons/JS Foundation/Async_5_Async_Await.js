@@ -16,7 +16,7 @@
 
 // First of if an Async function is "INVOKED" (not passed as an argument) and there is no await keyword in its body or no async functionality inside an async function it will work as rgular sychronous function, without delaying any code inside the function. the only difference is it will still return a promise just like synchronous code, with a value if retured.
 
-// However if there is await keyword inside the function in any point of the code, (Note!: that any sync code or non blocking code before the await keyword would still be treated as a regular sychronous code) all the code after the await function will be paused, untill all the sync code runs.once all the sync code is done, codes after the await will execute.
+// However if there is await keyword inside the function in any point of the code, (Note!: that any sync code or non blocking code before the await keyword would still be treated as a regular sychronous code) all the code after the await key word will be paused, untill all the sync code runs.once all the sync code is done, codes after the await will execute.
 
 //  Now here is the weried part, even though it would halt all the code after the await it would still return a promise like a sychronous code, which means all the code after the await is executed except at the same time it will still return a proimse, i mean come on man! they dont call JavaScript is weired for no reason!
 

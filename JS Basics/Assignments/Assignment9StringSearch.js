@@ -112,13 +112,61 @@ console.log(text.endsWith("World"));
 console.log(text.endsWith("s"));
 
 // !Comprehensive Assignment: Combine Your Knowledge
-// Create a mini-program that utilizes all the methods learned (indexOf(), lastIndexOf(), search(), match(), matchAll(), includes(), startsWith(), endsWith()). The program should analyze a long text (you can choose a paragraph or two from a book or article). Your program should:
+// ?Create a mini-program that utilizes all the methods learned (indexOf(), lastIndexOf(), search(), match(), matchAll(), includes(), startsWith(), endsWith()). The program should analyze a long text (you can choose a paragraph or two from a book or article). Your program should:
 
-// Find the occurrences of three different words or patterns, using different methods for each.
+console.log("\n------------------------------------------\n");
+
+let parapgraph =
+  "In the heart of the dense forest, a mysterious and ancient tree stands tall, its branches spreading wide across the sky. The tree, known to the local villagers as the Guardian of the Forest, has been the centerpiece of countless legends and stories passed down through generations. Its leaves, a vibrant shade of green, seem to shimmer in the sunlight, casting an ethereal glow on the forest floor below. A small, crystal-clear stream winds its way around the tree's massive trunk, its waters sparkling like diamonds in the light. Birds of all colors and sizes perch on the tree's branches, filling the air with their melodious songs. The forest is alive with the sounds of nature, from the gentle rustling of leaves in the breeze to the distant roar of a waterfall. As night falls, the tree takes on a new persona, with fireflies illuminating its surroundings, creating a magical spectacle that leaves all who witness it in awe. This tree is not only a symbol of nature's beauty and strength but also a reminder of the deep, unspoken connection between all living things.";
+
+// ?Find the occurrences of different words or patterns, using different methods for each.
+
+// ?indexOf(): Find the first occurrence of "forest". It returns the position where "forest" first appears.
+
+//Use indexOf() when you need to find the position of a specific substring.
+
+console.log("First index of forest is", parapgraph.indexOf("Forest"));
+
+// ?lastIndexOf(): Find the last occurrence of "tree". It gives the position of the last appearance of "tree".
+
+console.log("Last index of tree is", parapgraph.lastIndexOf("tree"));
+
+// ?search(): Search for "waterfall". This method searches for a string for "waterfall" and returns its position.
+
+// Use search() when you need more complex searches that require the flexibility of regular expressions.
+// ! NOTE: The search() method will always return the index of the first match it finds in the string, regardless of any flags. The g (global) flag does not change this behavior for search();
+
+console.log(parapgraph.search(/waterfall/i));
+
+//? match(): Use it to find all occurrences of "the". It returns an array containing all matches.
+// returning the array of all occurences of the word the.
+console.log(parapgraph.match(/the/gi));
+
+// ?matchAll(): This can be used to find all occurrences of "the", but it returns an iterator with all matches, including capturing groups.
+// returning the array of all occurences of the word the. returns an iterator, so we have to iterate through the array.
+let iterator = parapgraph.matchAll(/the/gi);
+
+for (let occurance of iterator) {
+  console.log(occurance);
+}
+
+// ?includes(): Check if the paragraph includes "magic". It returns true or false.
+console.log(parapgraph.includes("magic"));
+
+// By providing the starting point from the middle we can also direct the function to start from the half of the string
+
+console.log(parapgraph.includes("magic", parapgraph.length / 2));
+
+// ?startsWith(): Check if the paragraph starts with "In". It returns true or false.
+
+console.log(parapgraph.startsWith("In"));
+
+// ?endsWith(): Check if the paragraph ends with "things.". It returns true or false.
+
+console.log(parapgraph.endsWith("Things"));
+
 // Check if the text includes a specific phrase, starts with a certain word, and ends with a certain word.
-// Print a summary of your findings, including the indexes of occurrences, whether certain patterns are found, and if the text meets the startsWith and endsWith conditions.
-// Guidelines for Critical Thinking:
 
-// Why might you choose one method over another for specific tasks?
-// How can regular expressions enhance your search capabilities?
-// Consider the efficiency and readability of your code. How might these methods affect the performance of your script in a larger project?
+console.log(parapgraph.startsWith("In"));
+
+console.log(parapgraph.endsWith("things."));

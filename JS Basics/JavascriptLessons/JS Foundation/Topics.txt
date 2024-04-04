@@ -118,3 +118,68 @@ Logical Operators
 *Strings in HTML
    Handling Special Characters
    Concatenation for Breaking Long Lines
+
+8. Related to JS Foundation folder, stringMethods.js and w3schools StringMethods
+* Length - .length
+* Basic Extraction
+   .charAt()
+   .at()
+   [] (property access)
+* Character Codes
+   .charCodeAt()
+* Extracting String Parts
+   .slice()
+   .substring()
+   .substr()
+* Case Conversion and Concatenation
+   .toUpperCase()
+   .toLowerCase()
+   + (concatenation)
+* Trimming and Padding
+   .trim()
+   .trimStart(), .trimEnd()
+   .padStart(), .padEnd()
+* Advanced Character Extraction (Reiterated from Basic Extraction)
+* Replacing String Content
+   .replace()
+   .replaceAll()
+* Splitting Strings
+   .split()
+
+
+9. Related to JS Foundation folder, stringSearch.js and w3schools StringSearch
+
+* Part 1: indexOf() and lastIndexOf()
+   indexOf(): Find the first occurrence of a word or character.
+   lastIndexOf(): Find the last occurrence of the same word or character.
+* Part 2: search()
+   search(): Find the index of the first occurrence of a word, using both plain text and regular expressions.
+* Part 3: match() and matchAll()
+   match(): Find all occurrences of a pattern using both simple strings and regular expressions.
+   matchAll(): Iterate over all matches of a pattern using a regular expression with the global flag.
+* Part 4: includes(), startsWith(), and endsWith()
+   includes(): Check if the string includes a specific word or phrase, with and without specifying a starting index.
+   startsWith(): Verify if the string starts with a certain word or character.
+   endsWith(): Determine if the string ends with a specific term.
+
+10. TemplateLiteral(stringTemplateLiterals.js and w3schools JavaScript Template Strings)
+* Back-Tics Syntax
+* Quotes Inside Strings
+* Multiline Strings
+* Interpolation
+* Variable Substitutions
+* Expression Substitution
+* HTML Templates
+
+11.
+* Basic Number Types (Decimal and Non-Decimal Numbers)
+* Scientific (Exponent) Notation
+* 64-bit Floating Point Representation (IEEE 754 Standard)
+* Integer Precision
+* Floating Point Precision
+* Adding Numbers and Strings (Addition vs. Concatenation)
+* Numeric Strings
+* NaN - Not a Number
+* Infinity
+* Hexadecimal Numbers
+* JavaScript Numbers as Objects   

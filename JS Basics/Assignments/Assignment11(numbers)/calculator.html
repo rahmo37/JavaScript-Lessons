@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #e2e1dc;
+        background-image: url("./back2.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+
+      .calculator {
+        border: none;
+        border-radius: 25px;
+        padding: 20px;
+        width: 420px;
+        background-image: linear-gradient(
+          109.6deg,
+          rgba(164, 188, 216, 0.719) 11.2%,
+          rgba(67, 153, 175, 0.219) 91.1%
+        );
+        height: fit-content;
+        box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .display {
+        background-color: #ffffff96;
+        padding: 20px;
+        font-size: 38px;
+        margin-bottom: 10px;
+        text-align: right;
+        border-radius: 4px;
+        box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .buttons button {
+        width: 90px; /* Increased from 40px to 50px */
+        height: 90px; /* Increased from 40px to 50px */
+        margin: 6px; /* Adjusted for spacing */
+        font-size: 28px; /* Increased font size for better readability */
+        border: none; /* Optional: remove the border for a cleaner look */
+        background-color: #ffffff96; /* Light grey background for a subtle design */
+        border-radius: 5px; /* Rounded corners for a modern appearance */
+        cursor: pointer; /* Changes the cursor to a pointer on hover over the buttons */
+        box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for depth */
+        transition: all 0.1s; /* Smooth transition for the background color change on hover */
+      }
+
+      .buttons button:hover {
+        background-color: #f5ffff; /* Darker shade on hover for a feedback effect */
+      }
+
+      .buttons button:active {
+        background-color: #faf7f7;
+        transform: scale(99%);
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+      }
+
+    </style>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="display">0</div>
+      <div class="buttons">
+        <button class="otherOperators">Clear</button>
+        <span class="regularOperators">
+          <button>0</button>
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button>+</button>
+          <button>-</button>
+          <button>*</button>
+          <button>/</button>
+          <button>.</button>
+        </span>
+        <button class="otherOperators">Hexa</button>
+        <button class="otherOperators convertTo">Binary</button>
+        <button class="otherOperators convertTo">Octal</button>
+        <button class="otherOperators">=</button>
+      </div>
+    </div>
+    <script src="Assignment11(numbers).js"></script>
+  </body>
+</html>

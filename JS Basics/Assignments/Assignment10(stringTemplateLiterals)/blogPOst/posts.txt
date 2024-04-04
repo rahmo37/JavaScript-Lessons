@@ -1,0 +1,38 @@
+[
+  {
+    "title": "The Evolution of Pikachu",
+    "author": "Ash Ketchum",
+    "date": "2024-03-15",
+    "content": "Pikachu, one of the most iconic Pokémon, has evolved significantly over the years. This post explores Pikachu's journey and its impact on the Pokémon universe."
+  },
+  {
+    "title": "Understanding Super Saiyan Levels in DBZ",
+    "author": "Goku Son",
+    "date": "2024-03-10",
+    "content": "DBZ's Super Saiyan transformation is a key aspect of its characters' power. We delve into the various levels and what they signify for the Saiyans."
+  },
+  {
+    "title": "JavaScript: The Heart of the Web",
+    "author": "Brendan Eich",
+    "date": "2024-03-01",
+    "content": "A deep dive into JavaScript, exploring how it has shaped the modern web and continues to drive interactive web experiences."
+  },
+  {
+    "title": "Java: Building Reliable Applications",
+    "author": "James Gosling",
+    "date": "2024-02-20",
+    "content": "Java has been a staple in enterprise environments. This post explores the principles that make Java a robust platform for application development."
+  },
+  {
+    "title": "Node.js: Revolutionizing Backend Development",
+    "author": "Ryan Dahl",
+    "date": "2024-02-10",
+    "content": "Node.js has transformed backend development with its non-blocking I/O model. Here's how it works and why it's become so popular."
+  },
+  {
+    "title": "The Orange: A Fruit Full of Wonders",
+    "author": "Linnaeus",
+    "date": "2024-01-25",
+    "content": "Exploring the nutritional benefits and fascinating history of oranges, a fruit cherished around the globe for its taste and health benefits."
+  }
+]

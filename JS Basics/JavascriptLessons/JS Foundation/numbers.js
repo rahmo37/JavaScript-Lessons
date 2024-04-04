@@ -10,7 +10,7 @@ console.log(x, y);
 
 // the number variable is accurate upto 15-17 digits, after that the value might flactuate.
 x = 123456789012345.12345678901234567;
-console.log(x); // this is printing upto .12
+console.log(x, ""); // this is printing upto .12
 // When you define the value 123456789012345.12345678901234567, the number is stored in that 64-bit floating-point format. Because of this, only a certain number of significant digits can be represented accurately, and the remaining digits will be lost or rounded.
 
 // When you print this number, you may observe the output 123456789012345.12 or something close to it, since only the first 15-17 digits can be precisely represented. The rest of the number will be lost due to the limitations of the floating-point representation
@@ -32,7 +32,7 @@ console.log(x, typeof x);
 // a common mistake people make is, concatination a raw string at the beginning of the concatination and then add two numbers,
 
 y = "The result is :" + 500 + 1000;
-// if you are expection the result to be 1500, you are mistaken
+// if your expection the result to be 1500, you are mistaken
 console.log(y); // outputs 500100
 // to fix this you have to use the following syntax
 x = 500 + 1000 + " <-- this is the actual result";
@@ -52,7 +52,7 @@ console.log(x * y);
 
 // Lets talk about NaN - not a number
 // NaN is javascript reserved word indicating that a number is not a valid or leagal number
-// for example trying to do arithmetic with non-arithmatic string will result in NaN
+// for example trying to do arithmetic operation with non-arithmatic string will result in NaN
 
 x = "apple";
 y = 100;
@@ -67,7 +67,7 @@ console.log(isNaN(y));
 // you can even check if an operation of the variables is number or not
 console.log(isNaN(x / y));
 
-// If one variables value is NaNand you want to perform any peration with another variable, the output will be NaN as well
+// If one variables value is NaN and you want to perform any peration with another variable, the output will be NaN as well
 x = NaN;
 y = "5";
 console.log(x + y);
@@ -75,7 +75,7 @@ console.log(x + y);
 // The type of NaN is a number surprisingly
 console.log(typeof NaN);
 
-// Infinity is also a vlue
+// Infinity is also a value
 x = Infinity;
 console.log(x);
 

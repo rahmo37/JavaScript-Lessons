@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 60vh;
+        gap: 10px;
+        width: 50%;
+      }
+
+      .inputField,
+      .inputField label,
+      .inputField input {
+        width: 80%; /* Full width to fill the container */
+        margin: 5px 0; /* Adds top and bottom margin for spacing */
+      }
+
+      /* Additional styles for input types to ensure uniformity */
+      .inputField input[type="text"],
+      .inputField input[type="file"],
+      .inputField input[type="submit"] {
+        padding: 7px;
+        padding-left: 10px;
+        margin-top: 2px;
+        border-radius: 10px;
+        border-style: solid;
+      }
+
+      /* Style the submit button differently if needed */
+      .submitButton input[type="submit"] {
+        background-color: #8fd663;
+        width: 50%;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        margin-left: 30px;
+        border-radius: 10px;
+      }
+
+      form {
+        width: 50%;
+        margin-left: 0;
+      }
+
+      .inputField input[type="file"] {
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <form
+      action="http://localhost:3000/upload"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="container">
+        <div class="inputField">
+          <label for="name">Author FullName:</label>
+          <input type="text" id="name" name="name" />
+        </div>
+
+        <div class="inputField">
+          <label for="title">Enter Title</label>
+          <input class="inputField" type="text" id="title" name="title" />
+        </div>
+
+        <div class="inputField">
+          <label for="post">Enter post</label>
+          <input
+            class="inputField"
+            type="text"
+            id="post"
+            name="postedContent"
+          />
+        </div>
+        <div class="inputField">
+          <label for="imageUpload">Upload your image</label>
+          <input type="file" id="imageUpload" name="image" />
+        </div>
+        <div class="submitButton">
+          <input type="submit" value="Submit Blog" />
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

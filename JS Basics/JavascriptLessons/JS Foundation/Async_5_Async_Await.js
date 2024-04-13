@@ -18,7 +18,7 @@
 
 // However if there is await keyword inside the function in any point of the code, (Note!: that any sync code or non blocking code before the await keyword would still be treated as a regular sychronous code) all the code after the await key word will be paused, untill all the sync code runs.once all the sync code is done, codes after the await will execute.
 
-//  Now here is the weried part, even though it would halt all the code after the await it would still return a promise like a sychronous code, which means all the code after the await is executed except at the same time it will still return a proimse, i mean come on man! they dont call JavaScript is weired for no reason!
+//  Now here is the weried part, even though it would halt all the code after the await it would still return a promise like a sychronous code which will resolve later, which means all the code after the await is executed except at the same time it will still return a proimse, i mean come on man! they dont call JavaScript is weired for no reason!
 
 // Explore further from here
 // Now lets see what happens when called like this,
@@ -38,7 +38,7 @@
 // console.log(456);
 //!  -------------------------------CODE TO RUN--------------------------------------
 
-// So, so far we've known that if there are no async functionality inside the async function it will run like a sync code. however The .then(), .catch(), and .finally() methods attached to a promise will always execute asynchronously, after the current synchronous code has finished executing.
+// So, so-far we've known that if there are no async functionality inside the async function it will run like a sync code but still returns a promis immidietly. however The .then(), .catch(), and .finally() methods attached to a promise will always execute asynchronously, after the current synchronous code has finished executing.
 
 // So even if there's no actual asynchronous work happening inside the async function, the callbacks you provide to .then(), .catch(), and .finally() will still be executed in the microtask queue (asynchronously) after all the current synchronous code runs.
 

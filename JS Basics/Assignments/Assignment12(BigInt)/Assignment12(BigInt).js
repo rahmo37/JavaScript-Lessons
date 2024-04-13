@@ -145,26 +145,39 @@ Number.isSafeInteger(3.0); // true, because it's equivalent to 3
 // ?Ensure your function accounts for the limitations of mixing BigInts with Numbers.
 // ?Bonus: Include functionality to identify if the calculated total is a safe integer.
 
-// By default sends a get request. The fetchData function is an asynchornous function
+// The fetchData function is an asynchornous function
 const fetchData = async () => {
   try {
+    // When you make a fetch request, the promise returned by fetch() resolves to a Response object once the request completes. The Response object contains all the information about the response to the request, including the status code, headers, and the body content. You can use methods on the Response object to parse the body content accordingly, such as .json() to parse JSON response body, .text() for text, .blob() for binary data, and so on
+    // By default sends a get request.
     const response = await fetch("http://localhost:3000/population");
+
+    // Cheking the response object if the the 'ok' property is true or not
     if (!response.ok) {
+      // if not ok we throw error
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.text();
-    let popArr = JSON.parse(data);
+
+    // The data from the response is in json format, the response.json() convert the json to a javascript object
+    const popArr = await response.json();
+
+    // After converting to the js pbject
     return popArr;
   } catch (error) {
+    // If there were any error while fetching the data
     console.error("Error fetching data:", error);
   }
 };
 
+// since the fetchData() is an async function, we use the .then method after the promuis is resolved. the resolved data is retuned in a callback function. and we are retrieving the data from the callback
 fetchData().then(function (data) {
+  // sending the data in the countTotalPopulation population method which counts the total population
   console.log(countTotalPopulation(data));
 });
 
+// This function counts the total number of population in the world
 function countTotalPopulation(popArr) {
+  // the population is initialized as a big int number
   let totalPopulation = 0n;
   for (let eachCountry of popArr) {
     let population = eachCountry[2];

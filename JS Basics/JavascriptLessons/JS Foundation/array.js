@@ -43,7 +43,7 @@ console.log(rainbowArr);
 // length property
 console.log(rainbowArr.length);
 
-// you can call the sort property
+// you can call the sort method
 console.log(numArr.sort());
 
 // to access the last element of an array dynamically
@@ -117,7 +117,7 @@ for (let value of Object.keys(obj)) {
 
 // When you call a typeof operator in a array, it returns object.
 // So how would you realize if a variable is actually an array or not
-// you can you the Array.isArray() method of the prototype Array
+// you can use the Array.isArray() method of the prototype Array
 // for example
 console.log(Array.isArray(arr));
 console.log(Array.isArray(obj));

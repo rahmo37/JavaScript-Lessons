@@ -152,14 +152,60 @@ function convertMillisecondsToDays(milliseconds) {
 
 let st = "The temperature is 30.5 degrees at 10 AM";
 
-function extractNumbers() {
+extractNumbers(st).forEach((element) => {
+  // Each number is printed using for each
+  console.log(element);
+});
 
+function extractNumbers(st) {
+  // First making an array of words splitting each words
+  wordArray = st.split(" ");
+
+  // Filtering only numbers and saving it to a numbers array
+  let numbers = wordArray.filter((element) => {
+    // if the element is a number, we return the string representaion of it
+    return parseFloat(element);
+  });
+
+  // Each number is then again parsed with praseFloat to make it number from string
+  return numbers.map((element) => {
+    return parseFloat(element);
+  });
 }
 
-
 // !Assignment 3: Deep Dive into Number Properties
-// Research and present examples of using Number.MAX_VALUE, Number.MIN_VALUE, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY, and Number.NaN.
-// For each property, provide a practical use case where such a value might be encountered or utilized in a program.
+// ?Research and present examples of using Number.MAX_VALUE, Number.MIN_VALUE, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY, and Number.NaN.
+// ?For each property, provide a practical use case where such a value might be encountered or utilized in a program.
+
+// Number.MAX_VALUE is a constant representing the largest possible numeric value that JavaScript can handle. This value is approximately
+// 1.7976931348623157 × 10^308
+//  . If a calculation in JavaScript exceeds this value, it might be considered Infinity.
+// For example, if you multiply Number.MAX_VALUE by 2, the result will be Infinity because it exceeds the maximum value JavaScript can represent.
+console.log(Number.MAX_VALUE);
+
+// In JavaScript, Number.MIN_VALUE represents the smallest positive numeric value that JavaScript can handle, which is closer to zero, not the most negative number. This value is approximately 5 × 10 ^− 324
+//  . It's important because it's the closest to zero you can get without being zero in JavaScript calculations.  
+
+// Number.MIN_VALUE does not represent the smallest or most negative number, but rather the smallest positive number greater than zero that JavaScript can represent. It's about 
+// 5 × 10^−324
+// . This value is important because it shows the limit at which a number in JavaScript is considered greater than zero, rather than being rounded down to zero.
+
+console.log(Number.MIN_VALUE);
+
+// In JavaScript, Number.POSITIVE_INFINITY is a special value that represents infinity. It’s used when a number exceeds the maximum limit (Number.MAX_VALUE) or results from a division by zero in calculations.
+
+// For example, if you divide any positive number by zero in JavaScript, the result will be Number.POSITIVE_INFINITY. Also, if you keep multiplying a large number and exceed the JavaScript's maximum number capacity, the result turns into Number.POSITIVE_INFINITY.
+
+console.log(Number.POSITIVE_INFINITY);
+console.log(1 / 0);
+
+// In JavaScript, Number.NEGATIVE_INFINITY represents negative infinity. It's similar to Number.POSITIVE_INFINITY but on the negative side of the number scale. This value is used when calculations fall below the minimum limit or result from a negative number divided by zero.
+
+// For example, if you divide a negative number by zero in JavaScript, the result will be Number.NEGATIVE_INFINITY. Also, performing calculations that continue to decrease past JavaScript’s minimum representable value (like multiplying negative values beyond the number's capacity) results in Number.NEGATIVE_INFINITY.
+
+console.log(Number.NEGATIVE_INFINITY);
+console.log(-1 / 0);
+
 // !Comprehensive Project: A Simple E-commerce Checkout System
 // Combine all you've learned to create a simple front-end and back-end project:
 
@@ -167,6 +213,8 @@ function extractNumbers() {
 
 // Design a webpage where users can input product prices, quantities, and view the total cost. Use toFixed() to format the total cost.
 // Implement a feature where users can see prices in exponential notation if they exceed a certain amount, utilizing toExponential().
+
+
 // Back-end:
 
 // Create a simple server that can receive product details, calculate the total cost, and return it to the front-end.

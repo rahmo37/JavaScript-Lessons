@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bamboo.css/dist/dark.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Product Price Calculator</h1>
+    <form method="post" id="priceCalculator">
+      <div>
+        <label for="ProductDescription"> Product description</label>
+        <input type="text" id="ProductDescription" />
+      </div>
+      <div>
+        <label for="ProductPrice"> Product Price</label>
+        <input type="text" id="ProductPrice" />
+      </div>
+      <div>
+        <label for="ProductQuantity"> Product Quantity</label>
+        <input type="number" id="ProductPrice" />
+      </div>
+      <div style="margin-top: 20px">
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+    <div style="margin-top: 20px; width: 25%">
+      <input type="text" placeholder="Total Price" id="totalPrice" readonly />
+    </div>
+    <div style="margin-top: 20px; width: 25%">
+      <input type="text" placeholder="Time Stamp" id="timeStamp" readonly />
+    </div>
+    <script>
+      let form = document.forms["priceCalculator"]; // Grabbing the form named priceCalculator
+      form.addEventListener("submit", (e) => {
+        // Listening for the form submit event
+        e.preventDefault(); // prevents the form from submitting
+        let producrtDescription = ""; // Desciption of the product
+        let producrtPrice = 0; // The proce of the product
+        let producrtQuantity = 0; // The quantity of the product
+        let errorMessage = []; // This is the array where i gather all the error messages
+        if (form.elements[0].value === "" || form.elements[0].value === null) {
+          //if the product description field is empty or null
+          errorMessage.push("Enter a valid product description"); // Then inside the errorMessage Array we push the message
+        } else {
+          producrtDescription = form.elements[0].value; // If the description has value then then we add it in the producrtDescription
+        }
+        if (isNaN(form.elements[1].value) || +form.elements[1].value <= 0) {
+          // if the price is non a number or if the value is negetive, we push an appropriate message to errorMessage
+          errorMessage.push(
+            "Product price must be a number and greater than 0"
+          );
+        } else {
+          productPrice = form.elements[1].value; // Otherwise we save the message in othe productPrice Variable
+        }
+        if (isNaN(form.elements[2].value) || +form.elements[2].value <= 0) {
+          // Same criteria here, if the quantity is not a number, and less then 0, we push an appropriate message to errorMessage
+          errorMessage.push("Product quantity must be greater than 0");
+        } else {
+          productQuantity = form.elements[2].value; // Otherwise we save the message in othe productQuantity Variable
+        }
+        if (errorMessage.length > 0) {
+          // If the length of the error message array is greater then we send an alert
+          alert(errorMessage.join("\n"));
+        } else {
+          // Else we send information to the server
+          const totalPrice = document.getElementById("totalPrice"); // grabbing the totalPrice field
+          const timeStamp = document.getElementById("timeStamp"); // grabbing the time stamp field
+
+          // Sending the API request
+          fetch("http://localhost:3000", {
+            // Sending the request in the localhost 3000 port
+            method: "POST", // its a post request
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded", // This value in the header sends the request as a form data
+            },
+            body: `productPrice=${encodeURIComponent(
+              productPrice
+            )}&productQuantity=${encodeURIComponent(productQuantity)}`, // Sending Product Price and the Product quantity to the server
+          })
+            .then((response) => response.text()) // After the response is returned we change it to the text fromat
+            .then((data) => {
+              // After the reponse is converted into the text, we display it in he corresponding fields
+              const date = new Date();
+              totalPrice.value = data;
+              timeStamp.value = date.getHours() + ":" + date.getMinutes();
+            });
+        }
+      });
+    </script>
+  </body>
+</html>

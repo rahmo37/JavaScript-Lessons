@@ -1,9 +1,14 @@
-// Dependencies
+//! Dependencies
+const {
+  readProductDirectory,
+  createProduct,
+} = require("../Utilities/FileAndDirFunctions");
+const { createProductId } = require("../Utilities/OtherUtilities");
 
-// Module Scaffolding
+//! Module Scaffolding
 const handler = {};
 
-// Module Funtions
+//! Module Functions
 handler.validate = (requestProperties, callback) => {
   if (
     requestProperties.cleanedPath.toLowerCase() === "addproduct" &&
@@ -77,9 +82,36 @@ handler.validate = (requestProperties, callback) => {
 };
 
 handler.checkName = (productName, callback) => {
+  // First we are checking if the length of the product name is with in 3 - 50
   if (productName.length >= 3 && productName.length <= 50) {
-    // !Here we will check if the productName is unique or not
-    callback(true, null);
+    // Then we get all the data from each product file in our product directory
+    readProductDirectory((err, productData) => {
+      if (!err) {
+        // If no error, then we start checking if there are any exsisting product with the same name
+        let doesExists = false;
+
+        // Data is collected in a large outer object, containing smaller objects within it, each representing a product.
+
+        // We use the Object.keys method to obtain an array of keys for each product. Then, we use the forEach method to iterate through each key and access the corresponding data (product name in perticular) in the product object.
+        Object.keys(productData).forEach((key) => {
+          // then we check if the given product name equals to the product name of each product. If there is a match, we make doesExists true and send an error message
+          if (productName === productData[key].productName) {
+            doesExists = true;
+          }
+        });
+        if (doesExists) {
+          callback(false, {
+            error: "Product already exists!",
+          });
+        } else {
+          callback(true, null);
+        }
+      } else {
+        callback(false, {
+          error: "Error Verifying the product name!",
+        });
+      }
+    });
   } else {
     callback(false, {
       error: "Invalid product name!",
@@ -90,9 +122,32 @@ handler.checkName = (productName, callback) => {
 handler.addProduct = (requestProperties, callback) => {
   handler.validate(requestProperties, (isValid, err) => {
     if (isValid && !err) {
-      // !Here we will add the product...
-      callback(200, {
-        message: "Product added successfully!",
+      // Lets first accumulate the product details in an object
+      let productId = "product-" + createProductId(5);
+      let description = requestProperties.data.description;
+      let productName = requestProperties.data.productName;
+      let productQuantity = requestProperties.data.productQuantity;
+      let warranty = requestProperties.data.warranty;
+      let price = requestProperties.data.price
+      let newProduct = {
+        productId,
+        description,
+        productName,
+        productQuantity,
+        warranty,
+        price,
+      };
+
+      createProduct(productId, newProduct, (err) => {
+        if (!err) {
+          callback(200, {
+            message: "Product added successfully!",
+          });
+        } else {
+          callback(500, {
+            error: "Operation failed!",
+          });
+        }
       });
     } else {
       callback(400, err);
@@ -100,5 +155,5 @@ handler.addProduct = (requestProperties, callback) => {
   });
 };
 
-// Export
+//! Export
 module.exports = handler;

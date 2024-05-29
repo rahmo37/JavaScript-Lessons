@@ -1,5 +1,4 @@
 // key : value pair
-
 let obj = {
   number: 2,
   string: "Hellow world",
@@ -10,4 +9,4 @@ let obj = {
   },
 };
 
-console.log(obj.func(6, 5));
+export let boolean = obj.boolean;

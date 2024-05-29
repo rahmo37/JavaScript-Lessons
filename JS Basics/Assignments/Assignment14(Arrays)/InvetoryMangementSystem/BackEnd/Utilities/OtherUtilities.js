@@ -1,4 +1,5 @@
 // Dependecies
+const crypto = require("crypto");
 
 // Module Scaffolding
 const utilities = {};
@@ -20,6 +21,16 @@ utilities.jsonToJsObject = function (jsonString) {
     output = {};
   }
   return output;
+};
+
+utilities.createProductId = function (idLength) {
+  let length = typeof idLength === "number" && idLength >= 5 ? idLength : false;
+
+  if (length) {
+    return crypto.randomBytes(length).toString("hex");
+  } else {
+    return false;
+  }
 };
 
 // Export

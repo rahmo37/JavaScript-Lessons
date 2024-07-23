@@ -1,5 +1,8 @@
-import { sum } from "./scope.js";
-console.log(sum);
+function add() {
+  return 2 + 2;
+}
 
-import { boolean } from "./object.js";
-console.log(boolean);
+add.hello = function() {
+  console.log("Hi");
+}
+add.hello();

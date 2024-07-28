@@ -44,7 +44,7 @@ async function handlePromise() {
   }
 }
 
-handlePromise();
+console.log(handlePromise());
 
 // const button = document.getElementById("testBtn");
 // button.addEventListener("click", () => {

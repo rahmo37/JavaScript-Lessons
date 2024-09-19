@@ -23,6 +23,8 @@ function createDog(name, breed) {
   };
 }
 
+console.log(createDog.prototype);
+
 const myDog = createDog("Rex", "Laborador");
 myDog.speak();
 
@@ -32,7 +34,7 @@ myDog.speak();
 
 // This prototype property is an object, which has only one property at this stage which is constructor property
 
-console.log(Person.prototype);
+console.dir(myDog.prototype);
 
 // And this constructor property points back to the function itself
 
@@ -42,7 +44,7 @@ console.log(Person.prototype.constructor === Person); // true
 
 // What the heck is a prototypal linkage?
 
-// Prototypal linkage is the relationship between an object and its prototype, allowing the object to inherit properties and methods from the prototype. In JavaScript, this linkage is often represented internally by the [[Prototype]] property.
+// Prototypal linkage is the relationship between an object and it's prototype, allowing the object to inherit properties and methods from the prototype. In JavaScript, this linkage is often represented internally by the [[Prototype]] property.
 
 // Reffering to this line from the defination,"Prototypal linkage is the relationship between an object and its prototype" Person.prototype is the object in this case, and Object.prototype is the prototype of Person.prototype.
 console.dir(Object.getPrototypeOf(Person.prototype));
@@ -95,7 +97,7 @@ console.dir(Object.getPrototypeOf(person3));
 
 // * When you create objects of Array or String (With Literal stntax or without) those instance's prototype will point to the corresponding constructor function(Array, String...etc).
 
-let myArr = new Array();
+let myArr = [];
 console.dir(Object.getPrototypeOf(myArr)); // Array
 
 let str = "John";
@@ -145,3 +147,10 @@ Person.staticMethod();
 // Note that static methods are not available on instances
 
 // Method Overriding: It's possible to override inherited methods by defining a method with the same name directly on the object, thereby masking the inherited method.
+
+
+const test = function() {
+
+}
+
+console.log(test.prototype);

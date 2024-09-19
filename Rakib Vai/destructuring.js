@@ -10,10 +10,21 @@
 
 // Destructuring can also be used when defining the parameters to a function in JavaScript
 
-const user = { name: "John", age: 27 };
+const user =
+  {
+    name: 'John',
+    age: 27,
+  };
 
-function displayUser({ name: n, age: a }) {
-  console.log(`Name: ${n}, age ${a}`);
+function displayUser({
+  name: n,
+  age: a,
+}) {
+  console.log(
+    `Name: ${n}, age ${a}`
+  );
 }
 
-displayUser(user);
+displayUser(
+  user
+);

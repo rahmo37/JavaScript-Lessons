@@ -9,4 +9,7 @@ let obj = {
   },
 };
 
-export let boolean = obj.boolean;
+// export let boolean = obj.boolean;
+
+var baz = true;
+console.log(baz);

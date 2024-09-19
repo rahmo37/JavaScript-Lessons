@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Quiz</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .question {
+        margin-bottom: 15px;
+      }
+      .options {
+        margin-bottom: 20px;
+      }
+      .options label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background-color: #218838;
+      }
+      .result {
+        display: none;
+        margin-top: 20px;
+        font-size: 1.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>JavaScript Quiz</h2>
+      <div id="quiz-container"></div>
+      <button class="btn" onclick="submitQuiz()">Submit Quiz</button>
+      <div id="result" class="result"></div>
+    </div>
+
+    <script>
+      const quizData = [
+        {
+          question: 'What does HTML stand for?',
+          options: [
+            'Hyper Text Markup Language',
+            'Hot Mail',
+            'How to Make Lasagna',
+          ],
+          answer: 0,
+        },
+        {
+          question: 'Which language is used for web apps?',
+          options: ['PHP', 'Python', 'JavaScript'],
+          answer: 2,
+        },
+        {
+          question: 'How do you declare a JavaScript variable?',
+          options: ['var carName;', 'variable carName;', 'v carName;'],
+          answer: 0,
+        },
+        {
+          question: 'Which company developed JavaScript?',
+          options: ['Netscape', 'Bell Labs', 'Sun Microsystems'],
+          answer: 0,
+        },
+        {
+          question: 'What does CSS stand for?',
+          options: [
+            'Cascading Style Sheets',
+            'Creative Style System',
+            'Computer Style Sheets',
+          ],
+          answer: 0,
+        },
+        {
+          question: 'Inside which HTML element do we put the JavaScript?',
+          options: ['<script>', '<javascript>', '<js>'],
+          answer: 0,
+        },
+        {
+          question: 'How to write an IF statement in JavaScript?',
+          options: ['if i = 5 then', 'if i == 5 then', 'if (i == 5)'],
+          answer: 2,
+        },
+        {
+          question: 'How does a FOR loop start?',
+          options: [
+            'for i = 1 to 5',
+            'for (i = 0; i <= 5; i++)',
+            'for (i <= 5; i++)',
+          ],
+          answer: 1,
+        },
+        {
+          question: 'How can you add a comment in JavaScript?',
+          options: [
+            '<!--This is a comment-->',
+            '// This is a comment',
+            '# This is a comment',
+          ],
+          answer: 1,
+        },
+        {
+          question: 'What is the correct way to write a JavaScript array?',
+          options: [
+            "var colors = (1:'red', 2:'green', 3:'blue')",
+            "var colors = ['red', 'green', 'blue']",
+            "var colors = 'red', 'green', 'blue'",
+          ],
+          answer: 1,
+        },
+      ];
+
+      function loadQuiz() {
+        const quizContainer = document.getElementById('quiz-container'); // from html
+        quizData.forEach((q, index) => {
+            console.log(q.question);
+          const questionDiv = document.createElement('div'); // on the fly
+          questionDiv.classList.add('question');
+          questionDiv.innerHTML = `<h3>${index + 1}. ${q.question}</h3>`;
+
+          const optionsDiv = document.createElement('div'); // on the fly
+          optionsDiv.classList.add('options');
+
+          q.options.forEach((option, optIndex) => {
+              const optionLabel = document.createElement('label');
+              optionLabel.innerHTML = `
+                  <input type="radio" name="question${index}" value="${optIndex}">
+                  ${option}
+              `;
+              optionsDiv.appendChild(optionLabel);
+          });
+
+          questionDiv.appendChild(optionsDiv);
+          quizContainer.appendChild(questionDiv);
+        });
+      }
+
+      function submitQuiz() {
+        let score = 0;
+        quizData.forEach((q, index) => {
+          const selectedOption = document.querySelector(
+            `input[name="question${index}"]:checked`
+          );
+          if (selectedOption && parseInt(selectedOption.value) === q.answer) {
+            score++;
+          }
+        });
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `You scored ${score} out of ${quizData.length}`;
+        resultDiv.style.display = 'block';
+      }
+
+      loadQuiz();
+    </script>
+  </body>
+</html>

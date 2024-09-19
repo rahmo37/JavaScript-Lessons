@@ -1,52 +1,46 @@
-const p1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    let bool = false;
-    if (bool) {
-      resolve("P1 resolved");
-    } else {
-      reject("P1 rejected");
-    }
-  }, 20000);
+const promise1 = new Promise((res, rej) => {
+  setTimeout(function () {
+    rej("Promise1 Rejected");
+  }, 10000);
 });
 
-const p2 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    let bool = false;
-    if (bool) {
-      resolve("P2 resolved");
-    } else {
-      reject("P2 rejected");
-    }
-  }, 40000);
+const promise2 = new Promise((res, rej) => {
+  setTimeout(function () {
+    res("Promise2 Resolved");
+  }, 10000);
 });
+
+// function getData() {
+//   promise.then((res) => {
+//     console.log(res);
+//   }); // Async
+//   console.log("Hi"); // Sync
+// }
 
 async function handlePromise() {
-  console.log("Line 14");
+  console.log("Test"); // Sync
 
-  const response = await fetch("https://api.github.com/users/rahmo37");
-  const data = await response.json();
-  console.log(data);
+  const res = await promise1;
+  console.log(res); // Async
+  console.log("Hi"); // Async
 
-  try {
-    const valP1 = await p1;
-    console.log("prints after p1 setteles!");
-    console.log(valP1);
-  } catch (err) {
-    console.log(err);
-  }
+  console.log(err);
 
-  try {
-    const valP2 = await p2;
-    console.log("prints after p2 setteles!");
-    console.log(valP2);
-  } catch (err) {
-    console.log(err);
-  }
+  const res2 = await promise2;
+  console.log(res2);
+
+  console.log("Test 2");
 }
 
-console.log(handlePromise());
+handlePromise().catch((err) => {
+  console.log(err);
+});
 
-// const button = document.getElementById("testBtn");
-// button.addEventListener("click", () => {
-//   console.log("Hi");
-// });
+console.log("Hi again!");
+
+const btn = document.getElementById("testBtn");
+
+btn.addEventListener("click", function () {
+  console.log("Test Test Test!");
+});
+

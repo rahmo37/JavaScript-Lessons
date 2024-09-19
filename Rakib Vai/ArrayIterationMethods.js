@@ -42,7 +42,7 @@ let sum = num.reduce((acc, element) => {
 // Array reduceRight()
 // Purpose: Executes a reducer function on each element of the array (from right to left), resulting in a single output value.
 let sum1 = num.reduceRight((acc, element) => {
-  console.log("Acc: " + acc, "Current Number: " + element);
+  console.log('Acc: ' + acc, 'Current Number: ' + element);
   return acc - element;
 }, 100);
 
@@ -59,7 +59,7 @@ console.log(doesExsists);
 
 // Array from()
 // Purpose: Creates a new array from an array-like or iterable object.
-let str = "12456";
+let str = '12456';
 let newArrFromString = Array.from(str, Number);
 console.log(newArrFromString);
 
@@ -90,5 +90,5 @@ let newNumbers = [...num1, 7, 9, 10];
 console.log(newNumbers);
 
 let obj = { a: 2, b: 3 };
-let newObj = {...obj, c: 4};
+let newObj = { ...obj, c: 4 };
 console.log(newObj);

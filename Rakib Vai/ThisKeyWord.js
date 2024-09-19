@@ -1,13 +1,30 @@
+"use strict";
 
+// function print(gender, age) {
+//   return (
+//     this.firstName +
+//     " " +
+//     this.lastName +
+//     " " +
+//     " Gender is " +
+//     gender +
+//     " age is " +
+//     age
+//   );
+// }
 
-let obj = {
-  test1: "hi",
+// const obj = {
+//   firstName: "Obaedur",
+//   lastName: "Rahman",
+// };
+
+// console.log(print.bind(obj, "Male", 29)());
+console.log(this);
+let a = function() {
+  console.log(this);
+  // let b = () => {
+  //   console.log(this);
+  // };
+  // return b;
 };
-
-module.exports = {
-  
-};
-let test = this;
-test.hi = "Zhupitro"
-
-console.log(global);
+a();

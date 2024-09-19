@@ -1,17 +1,17 @@
 const car = {
-  name: "BMW",
-  model: "X series",
-  color: "Blue",
+  name: 'BMW',
+  model: 'X series',
+  color: 'Blue',
   year: 2022,
   start: () => {
-    return "The car is starting";
+    return 'The car is starting';
   },
-  drive: function() {
-    return "I am driving this " + this.name;
+  drive: function () {
+    return 'I am driving this ' + this.name;
   },
 };
 
-car.name = "Audi";
+car.name = 'Audi';
 
 car = {};
 
